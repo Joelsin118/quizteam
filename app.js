@@ -1,28 +1,45 @@
 const quiz = [
 	{
-		question: "Which animal are you?",
+		question: "What is your favorite color?",
 		answers: [
-			{ src: "images/dog.jpg", score: 2 },
-			{ src: "images/cat.jpg", score: -2 },
-			{ src: "images/bird.jpg", score: 0 },
-			{ src: "images/fish.jpg", score: 1 }
+			{ src: "images/black.jpg", score: 20 },
+			{ src: "images/blue.jpg", score: 5},
+			{ src: "images/green.jpeg", score: 0 },
+			{ src: "images/red.png", score: 35 }
 		] 
 	}, 
 	{
-		question: "What is your favorite drink?",
+		question: "What do you feel like doing with your partner or if you had one?",
 		answers: [
-			{ src: "images/beer.jpg", score: 1 }, 
-			{ src: "images/vodka.jpg", score: 2 }, 
-			{ src: "images/whiskey.jpg", score: -1 }, 
-			{ src: "images/wine.jpg", score: 0 }
+			{ src: "images/alone.jpg", score: 20 }, 
+			{ src: "images/comp.jpg", score: 3 }, 
+			{ src: "images/guy.jpg", score: 20}, 
+			{ src: "images/cuddling.jpeg", score:15 }
 		]
 	},
 	{
 		question: "What is your favorite hobby?", 
 		answers:[
-			{ src: "images/golf.jpg", score: 2 },
-			{ src: "images/sega.jpg", score: -2 },
-			{ src: "images/music.png", score: 0 }
+			{ src: "images/sing.jpg", score:15 },
+			{ src: "images/reading.jpg", score: 20 },
+			{ src: "images/sports.jpg", score: 0 },
+            { src: "images/games.jpg", score: 0 }
+		]
+	},
+    {
+		question: "Do you even believe in horoscopes??", 
+		answers:[
+			{ src: "images/yes.png", score:15 },
+			{ src: "images/no.png", score: 20 },
+		]
+	},
+    {
+		question: "What is your personality like?", 
+		answers:[
+			{ src: "images/Focused.png", score:15 },
+			{ src: "images/witty.jpeg", score: 20 },
+			{ src: "images/calm.png", score: 6 },
+            { src: "images/alone.gif", score: 0 }
 		]
 	}
 ];
@@ -59,6 +76,7 @@ for (let i = 0; i < quiz.length; i++) {
 		
 		img.onclick = function() {
 			q.score = a.score;
+            console.log(a.score)
 		};
 	}
 	// add to container
@@ -76,9 +94,17 @@ resultsBtn.onclick = function() {
 		score += quiz[i].score;
 	}
 	const response = document.getElementById('response');
-	if (score > 0) {
-		response.textContent = "You are an extrovert.";
-	} else {
-		response.textContent = "You are an introvert.";
-	}
+	if (score > 60) {
+		response.textContent = "You are a cancer.";
+	} else if (score > 50) {
+		response.textContent = " You are a ARIES.";
+	} else if (score > 40) {
+        response.textContent = " You are a Tarus.";
+    } else if (score > 30) {
+        response.textContent = " You are a Capricorn.";
+    } else if (score > 20) {
+        response.textContent = " You are a Gemini.";
+    } else if (score > 10) {
+        response.textContent = " You are a Leo.";
+    } 
 };
